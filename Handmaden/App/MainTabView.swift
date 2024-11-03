@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TabView: View {
+struct MainTabView: View {
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -20,5 +20,5 @@ struct TabView: View {
 }
 
 #Preview {
-    TabView()
+    MainTabView()
 }

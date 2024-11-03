@@ -9,15 +9,20 @@ import SwiftUI
 
 struct RootView: View {
     @State private var loadScreen = true
-    
+    @EnvironmentObject var viewModel: AuthViewModel
+
+ 
     var body: some View {
         Group {
             if loadScreen {
                 LoadingView()
                     .transition(.opacity)
             } else {
-                TabView()
-                    .transition(.opacity)
+                if viewModel.userSession != nil {
+                    MainTabView()
+                } else {
+                    LoginView()
+                } 
             }
         }
         .onAppear {
@@ -32,4 +37,5 @@ struct RootView: View {
 
 #Preview {
     RootView()
+        .environmentObject(AuthViewModel())
 }
