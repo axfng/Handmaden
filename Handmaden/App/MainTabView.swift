@@ -8,14 +8,29 @@
 import SwiftUI
 
 struct MainTabView: View {
+    @StateObject private var viewModel = AuthViewModel()
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        TabView {
+            Group {
+                HomeView()
+                    .tabItem {
+                        Label("Home", systemImage: "house")
+                    }
+                SearchView()
+                    .tabItem {
+                        Label("Search", systemImage: "magnifyingglass")
+                    }
+                SavedView()
+                    .tabItem {
+                        Label("Saved", systemImage: "heart")
+                    }
+                CartView()
+                    .tabItem {
+                        Label("Cart", systemImage: "cart")
+                    }
+            }
         }
-        .padding()
     }
 }
 

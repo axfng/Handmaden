@@ -69,7 +69,7 @@ struct LoginView: View {
                 .font(.system(size: 14))
             }
             .navigationDestination(isPresented: $isSignedIn) {
-                TabView()
+                MainTabView()
             }
         }
     }

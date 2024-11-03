@@ -7,12 +7,14 @@
 
 import SwiftUI
 
-struct SavedViews: View {
+struct SavedView: View {
+    @StateObject private var viewModel = AuthViewModel()
+
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
 #Preview {
-    SavedViews()
+    SavedView()
 }
