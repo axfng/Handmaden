@@ -6,14 +6,20 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct RootView: View {
     @State private var loadScreen = true
+    @State private var isSignedIn: Bool
+    
     @EnvironmentObject var viewModel: AuthViewModel
     @EnvironmentObject var productViewModel: ProductViewModel
     @EnvironmentObject var cartViewModel: CartViewModel
     @EnvironmentObject var savedViewModel: SavedViewModel
-
+    
+    init() {
+        _isSignedIn = State(initialValue: Auth.auth().currentUser != nil)
+    }
  
     var body: some View {
         Group {
@@ -21,15 +27,15 @@ struct RootView: View {
                 LoadingView()
                     .transition(.opacity)
             } else {
-                if viewModel.userSession != nil {
-                    MainTabView()
+                if isSignedIn {
+                    MainTabView(isSignedIn: $isSignedIn)
                         .environmentObject(viewModel)
                         .environmentObject(productViewModel)
                         .environmentObject(cartViewModel)
                         .environmentObject(savedViewModel)
                 } else {
-                    LoginView()
-                } 
+                    LoginView(isSignedIn: $isSignedIn)
+                }
             }
         }
         .onAppear {

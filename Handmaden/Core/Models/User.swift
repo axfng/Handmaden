@@ -11,6 +11,7 @@ struct User: Identifiable, Codable {
     let id: String
     let fullName: String
     let email: String
+//    var likedItems: [Int]
     
     var initials: String {
         let formatter = PersonNameComponentsFormatter()

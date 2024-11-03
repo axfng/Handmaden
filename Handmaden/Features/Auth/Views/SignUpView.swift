@@ -14,8 +14,11 @@ struct SignUpView: View {
     @State private var fullName = ""
     @State private var password = ""
     @State private var confirmPassword = ""
+    
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var viewModel: AuthViewModel
+    
+    @Binding var isSignedIn: Bool
     
     var body: some View {
         VStack {
@@ -114,5 +117,5 @@ extension SignUpView: AuthenticationFormProtocol {
 }
 
 #Preview {
-    SignUpView()
+    SignUpView(isSignedIn: .constant(true))
 }

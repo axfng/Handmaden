@@ -21,9 +21,10 @@ class AuthViewModel: ObservableObject {
     
     init() {
         self.userSession = Auth.auth().currentUser
-        
         Task {
-            await fetchUser()
+            if userSession != nil {
+                await fetchUser()
+            }
         }
     }
     
@@ -61,7 +62,6 @@ class AuthViewModel: ObservableObject {
     }
     
     func deleteAccount() {
-        
     }
     
     func fetchUser() async {

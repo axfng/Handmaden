@@ -11,7 +11,7 @@ struct LoginView: View {
     @State private var email = ""
     @State private var password = ""
     @EnvironmentObject var viewModel: AuthViewModel
-    @State private var isSignedIn = false
+    @Binding var isSignedIn: Bool
     
     var body: some View {
         NavigationStack {
@@ -58,7 +58,7 @@ struct LoginView: View {
             Spacer()
             
             NavigationLink {
-                SignUpView()
+                SignUpView(isSignedIn: $isSignedIn)
                     .navigationBarBackButtonHidden(true)
             } label: {
                 HStack {
@@ -68,9 +68,9 @@ struct LoginView: View {
                 }
                 .font(.system(size: 14))
             }
-            .navigationDestination(isPresented: $isSignedIn) {
-                MainTabView()
-            }
+//            .navigationDestination(isPresented: $isSignedIn) {
+//                MainTabView(isSignedIn: $isSignedIn)
+//            }
         }
     }
 }
@@ -86,5 +86,5 @@ extension LoginView: AuthenticationFormProtocol {
 }
 
 #Preview {
-    LoginView()
+    LoginView(isSignedIn: .constant(true))
 }

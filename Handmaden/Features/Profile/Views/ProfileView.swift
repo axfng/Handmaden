@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ProfileView: View {
+    @Binding var isSignedIn: Bool
+
     @EnvironmentObject var viewModel: AuthViewModel
 
     var body: some View {
@@ -51,6 +53,7 @@ struct ProfileView: View {
                 Section("Account") {
                     Button {
                         viewModel.signOut()
+                        isSignedIn = false
                     } label: {
                         SettingsRowView(imageName: "arrow.left.circle.fill",
                                         title: "Sign Out",
@@ -58,7 +61,8 @@ struct ProfileView: View {
                     }
                     
                     Button {
-                        print("Sign out...")
+                        viewModel.deleteAccount()
+                        isSignedIn = false
                     } label: {
                         SettingsRowView(imageName: "xmark.circle.fill",
                                         title: "Delete Account",
@@ -71,6 +75,6 @@ struct ProfileView: View {
 }
 
 #Preview {
-    ProfileView()
+    ProfileView(isSignedIn: .constant(true))
         .environmentObject(AuthViewModel())
 }

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct HomeView: View {
+    @Binding var isSignedIn: Bool
+    
     @EnvironmentObject private var viewModel: AuthViewModel
     @EnvironmentObject var productViewModel: ProductViewModel
     @EnvironmentObject private var cartViewModel: CartViewModel
@@ -16,10 +18,18 @@ struct HomeView: View {
 
     var body: some View {
         NavigationStack {
-            Text("Welcome to the Store")
-                .font(.title)
-                .padding()
-        
+            HStack {
+                NavigationLink {
+                    ProfileView(isSignedIn: $isSignedIn)
+                } label: {
+                    Image(systemName: "person.circle")
+                }
+            }
+            HStack {
+                Text("Handmade by Heels")
+                    .font(.title)
+                    .padding(.bottom, 20)
+            }
             ScrollView {
                 ForEach(productViewModel.products, id: \.id) { product in
                     ProductCardView(product: product)
@@ -35,7 +45,7 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView()
+    HomeView(isSignedIn: .constant(true))
         .environmentObject(AuthViewModel())
         .environmentObject(ProductViewModel())
         .environmentObject(CartViewModel())

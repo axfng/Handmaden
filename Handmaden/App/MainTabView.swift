@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MainTabView: View {
+    @Binding var isSignedIn: Bool
+    
     @StateObject private var viewModel = AuthViewModel()
     @StateObject private var productViewModel = ProductViewModel()
     @StateObject private var cartViewModel = CartViewModel()
@@ -17,7 +19,7 @@ struct MainTabView: View {
     var body: some View {
         TabView {
             
-            HomeView()
+            HomeView(isSignedIn: $isSignedIn)
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }
@@ -55,5 +57,5 @@ struct MainTabView: View {
 }
 
 #Preview {
-    MainTabView()
+    MainTabView(isSignedIn: .constant(true))
 }
