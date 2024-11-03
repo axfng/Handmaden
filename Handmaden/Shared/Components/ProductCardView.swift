@@ -62,6 +62,6 @@ struct ProductCardView: View {
 }
 
 #Preview {
-    ProductCardView(product: Product(id: 1, title: "Sample Product", description: "A great product", price: 19.99, thumbnail: "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png"))
+    ProductCardView(product: Product(id: 1, title: "Sample Product", description: "A great product", price: 19.99, thumbnail: "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png", tags: ["Beauty"]))
         .environmentObject(SavedViewModel())
 }

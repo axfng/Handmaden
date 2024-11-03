@@ -22,4 +22,8 @@ struct CheckoutView: View {
 
 #Preview {
     CheckoutView()
+        .environmentObject(AuthViewModel())
+        .environmentObject(ProductViewModel())
+        .environmentObject(CartViewModel())
+        .environmentObject(SavedViewModel())
 }

@@ -25,7 +25,7 @@ struct MainTabView: View {
                 .environmentObject(productViewModel)
                 .environmentObject(cartViewModel)
                 .environmentObject(savedViewModel)
-            SearchView()
+            SearchView(productViewModel: ProductViewModel())
                 .tabItem {
                     Label("Search", systemImage: "magnifyingglass")
                 }

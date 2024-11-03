@@ -14,9 +14,10 @@ struct Product: Identifiable, Codable {
     let description: String
     let price: Double
     let thumbnail: String
+    let tags: [String]
     var isLiked: Bool = false
     
     enum CodingKeys: String, CodingKey {
-        case id, title, description, price, thumbnail
+        case id, title, description, price, thumbnail, tags
     }
 }

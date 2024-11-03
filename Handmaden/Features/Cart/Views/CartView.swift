@@ -22,4 +22,8 @@ struct CartView: View {
 
 #Preview {
     CartView()
+        .environmentObject(AuthViewModel())
+        .environmentObject(ProductViewModel())
+        .environmentObject(CartViewModel())
+        .environmentObject(SavedViewModel())
 }

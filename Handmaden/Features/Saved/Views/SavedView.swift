@@ -21,4 +21,8 @@ struct SavedView: View {
 
 #Preview {
     SavedView()
+        .environmentObject(AuthViewModel())
+        .environmentObject(ProductViewModel())
+        .environmentObject(CartViewModel())
+        .environmentObject(SavedViewModel())
 }
