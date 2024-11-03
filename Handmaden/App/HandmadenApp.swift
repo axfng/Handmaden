@@ -11,7 +11,7 @@ import SwiftUI
 struct HandmadenApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabView()
         }
     }
 }
