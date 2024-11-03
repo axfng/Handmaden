@@ -26,17 +26,19 @@ struct SavedView: View {
                     .foregroundStyle(.gray)
                     .padding()
             } else {
-                List(savedViewModel.savedItems) { product in
-                    ProductCardView(product: product)
-                        .swipeActions {
-                            Button(role: .destructive) {
-                                savedViewModel.toggleLike(for: product)
-                            } label: {
-                                Label("Remove", systemImage: "trash")
+                ScrollView {
+                    ForEach (savedViewModel.savedItems) { product in
+                        ProductCardView(product: product)
+                            .swipeActions {
+                                Button(role: .destructive) {
+                                    savedViewModel.toggleLike(for: product)
+                                } label: {
+                                    Label("Remove", systemImage: "trash")
+                                }
                             }
-                        }
+                    }
+                    .listStyle(InsetGroupedListStyle())
                 }
-                .listStyle(InsetGroupedListStyle())
             }
             
             Spacer()
