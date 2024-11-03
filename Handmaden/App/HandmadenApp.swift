@@ -21,6 +21,9 @@ import FirebaseCore
 @main
 struct HandmadenApp: App {
     @StateObject private var viewModel = AuthViewModel()
+    @StateObject private var productViewModel = ProductViewModel()
+    @StateObject private var cartViewModel = CartViewModel()
+    @StateObject private var savedViewModel = SavedViewModel()
 //    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
     init() {
@@ -31,6 +34,9 @@ struct HandmadenApp: App {
         WindowGroup {
             RootView()
                 .environmentObject(viewModel)
+                .environmentObject(productViewModel)
+                .environmentObject(cartViewModel)
+                .environmentObject(savedViewModel)
         }
     }
 }

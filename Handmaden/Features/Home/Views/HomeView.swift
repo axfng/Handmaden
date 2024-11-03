@@ -8,13 +8,36 @@
 import SwiftUI
 
 struct HomeView: View {
-    @StateObject private var viewModel = AuthViewModel()
+    @EnvironmentObject private var viewModel: AuthViewModel
+    @EnvironmentObject var productViewModel: ProductViewModel
+    @EnvironmentObject private var cartViewModel: CartViewModel
+    @EnvironmentObject var savedViewModel: SavedViewModel
+
 
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            Text("Welcome to the Store")
+                .font(.title)
+                .padding()
+        
+            ScrollView {
+                ForEach(productViewModel.products, id: \.id) { product in
+                    ProductCardView(product: product)
+                }
+            }
+        }
+        .onAppear {
+            Task {
+                await productViewModel.fetchProducts()
+            }
+        }
     }
 }
 
 #Preview {
     HomeView()
+        .environmentObject(AuthViewModel())
+        .environmentObject(ProductViewModel())
+        .environmentObject(CartViewModel())
+        .environmentObject(SavedViewModel())
 }

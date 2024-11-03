@@ -10,6 +10,9 @@ import SwiftUI
 struct RootView: View {
     @State private var loadScreen = true
     @EnvironmentObject var viewModel: AuthViewModel
+    @EnvironmentObject var productViewModel: ProductViewModel
+    @EnvironmentObject var cartViewModel: CartViewModel
+    @EnvironmentObject var savedViewModel: SavedViewModel
 
  
     var body: some View {
@@ -20,6 +23,10 @@ struct RootView: View {
             } else {
                 if viewModel.userSession != nil {
                     MainTabView()
+                        .environmentObject(viewModel)
+                        .environmentObject(productViewModel)
+                        .environmentObject(cartViewModel)
+                        .environmentObject(savedViewModel)
                 } else {
                     LoginView()
                 } 
@@ -38,4 +45,7 @@ struct RootView: View {
 #Preview {
     RootView()
         .environmentObject(AuthViewModel())
+        .environmentObject(ProductViewModel())
+        .environmentObject(CartViewModel())
+        .environmentObject(SavedViewModel())
 }
