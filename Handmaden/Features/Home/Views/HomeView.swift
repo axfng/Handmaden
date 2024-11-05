@@ -14,6 +14,7 @@ struct HomeView: View {
     @EnvironmentObject var productViewModel: ProductViewModel
     @EnvironmentObject private var cartViewModel: CartViewModel
     @EnvironmentObject var savedViewModel: SavedViewModel
+    @EnvironmentObject var userSession: UserSessionViewModel
 
 
     var body: some View {
@@ -50,4 +51,5 @@ struct HomeView: View {
         .environmentObject(ProductViewModel())
         .environmentObject(CartViewModel())
         .environmentObject(SavedViewModel())
+        .environmentObject(UserSessionViewModel())
 }

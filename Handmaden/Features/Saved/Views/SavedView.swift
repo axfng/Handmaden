@@ -12,6 +12,7 @@ struct SavedView: View {
     @EnvironmentObject var productViewModel: ProductViewModel
     @EnvironmentObject private var cartViewModel: CartViewModel
     @EnvironmentObject var savedViewModel: SavedViewModel
+    @EnvironmentObject var userSession: UserSessionViewModel
 
     var body: some View {
         VStack {
@@ -21,13 +22,11 @@ struct SavedView: View {
                     .foregroundStyle(.blue)
                     .padding()
             }
-            if savedViewModel.savedItems.isEmpty {
-                Text("No liked items... yet!")
-                    .foregroundStyle(.gray)
-                    .padding()
+            if userSession.savedList.isEmpty {
+                            Text("Your saved list is empty.")
             } else {
                 ScrollView {
-                    ForEach (savedViewModel.savedItems) { product in
+                    ForEach (userSession.savedList) { product in
                         ProductCardView(product: product)
                             .swipeActions {
                                 Button(role: .destructive) {
@@ -37,9 +36,27 @@ struct SavedView: View {
                                 }
                             }
                     }
-                    .listStyle(InsetGroupedListStyle())
                 }
             }
+//            if savedViewModel.savedItems.isEmpty {
+//                Text("No liked items... yet!")
+//                    .foregroundStyle(.gray)
+//                    .padding()
+//            } else {
+//                ScrollView {
+//                    ForEach (savedViewModel.savedItems) { product in
+//                        ProductCardView(product: product)
+//                            .swipeActions {
+//                                Button(role: .destructive) {
+//                                    savedViewModel.toggleLike(for: product)
+//                                } label: {
+//                                    Label("Remove", systemImage: "trash")
+//                                }
+//                            }
+//                    }
+//                    .listStyle(InsetGroupedListStyle())
+//                }
+//            }
             
             Spacer()
             
@@ -54,4 +71,5 @@ struct SavedView: View {
         .environmentObject(ProductViewModel())
         .environmentObject(CartViewModel())
         .environmentObject(SavedViewModel())
+        .environmentObject(UserSessionViewModel())
 }

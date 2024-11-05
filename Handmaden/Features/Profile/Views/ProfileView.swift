@@ -11,6 +11,7 @@ struct ProfileView: View {
     @Binding var isSignedIn: Bool
 
     @EnvironmentObject var viewModel: AuthViewModel
+    @EnvironmentObject var userModel: UserSessionViewModel
 
     var body: some View {
         if let user = viewModel.currentUser {
@@ -77,4 +78,5 @@ struct ProfileView: View {
 #Preview {
     ProfileView(isSignedIn: .constant(true))
         .environmentObject(AuthViewModel())
+        .environmentObject(UserSessionViewModel())
 }

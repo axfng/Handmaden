@@ -10,6 +10,7 @@ import SwiftUI
 struct ProductCardView: View {
     @EnvironmentObject var savedViewModel: SavedViewModel
     @EnvironmentObject private var cartViewModel: CartViewModel
+    @EnvironmentObject var userSession: UserSessionViewModel
 
     let product: Product
 
@@ -41,12 +42,16 @@ struct ProductCardView: View {
                     .font(.subheadline)
                 HStack {
                     Button{
-                        cartViewModel.addToCart(product: product)
+                        let cartItem = CartItem(id: product.id, product: product, quantity: 1)
+                        userSession.cart.append(cartItem)
                     } label: {
                         Text("Add to Cart")
                     }
                     Button{
                         savedViewModel.toggleLike(for: product)
+                        if !userSession.savedList.contains(where: { $0.id == product.id }) {
+                            userSession.savedList.append(product)
+                        }
                     } label: {
                         Image(systemName: savedViewModel.isLiked(product) ? "heart.fill" : "heart")
                             .foregroundColor(.red)

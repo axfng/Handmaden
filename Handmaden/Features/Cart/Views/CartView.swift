@@ -12,6 +12,7 @@ struct CartView: View {
     @EnvironmentObject var productViewModel: ProductViewModel
     @EnvironmentObject private var cartViewModel: CartViewModel
     @EnvironmentObject var savedViewModel: SavedViewModel
+    @EnvironmentObject var userSession: UserSessionViewModel
 
 
 
@@ -24,13 +25,13 @@ struct CartView: View {
                         .padding()
                 }
 
-                if cartViewModel.cartItems.isEmpty {
+                if userSession.cart.isEmpty {
                     Text("Your shopping cart is empty!")
                         .foregroundStyle(.gray)
                         .padding()
                 } else {
                     ScrollView {
-                        ForEach (cartViewModel.cartItems) { item in
+                        ForEach (userSession.cart) { item in
                             CartProductView(cartItem: item)
                                 .swipeActions {
                                     Button(role: .destructive) {
@@ -73,4 +74,5 @@ struct CartView: View {
         .environmentObject(ProductViewModel())
         .environmentObject(CartViewModel())
         .environmentObject(SavedViewModel())
+        .environmentObject(UserSessionViewModel())
 }

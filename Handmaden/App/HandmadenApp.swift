@@ -20,6 +20,8 @@ import FirebaseCore
 
 @main
 struct HandmadenApp: App {
+    @StateObject private var userSession = UserSessionViewModel()
+
     @StateObject private var viewModel = AuthViewModel()
     @StateObject private var productViewModel = ProductViewModel()
     @StateObject private var cartViewModel = CartViewModel()
@@ -37,6 +39,7 @@ struct HandmadenApp: App {
                 .environmentObject(productViewModel)
                 .environmentObject(cartViewModel)
                 .environmentObject(savedViewModel)
+                .environmentObject(userSession)
         }
     }
 }

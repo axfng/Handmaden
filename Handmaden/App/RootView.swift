@@ -16,6 +16,7 @@ struct RootView: View {
     @EnvironmentObject var productViewModel: ProductViewModel
     @EnvironmentObject var cartViewModel: CartViewModel
     @EnvironmentObject var savedViewModel: SavedViewModel
+    @EnvironmentObject var userSession: UserSessionViewModel
     
     init() {
         _isSignedIn = State(initialValue: Auth.auth().currentUser != nil)
@@ -54,4 +55,5 @@ struct RootView: View {
         .environmentObject(ProductViewModel())
         .environmentObject(CartViewModel())
         .environmentObject(SavedViewModel())
+        .environmentObject(UserSessionViewModel())
 }
