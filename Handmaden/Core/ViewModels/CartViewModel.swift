@@ -25,12 +25,13 @@ class CartViewModel: ObservableObject {
     }
     
     func clearCart() {
-        cartItems.removeAll()
-    }
-    
+            cartItems.removeAll()
+        }
+        
     var totalCost: Double {
         cartItems.reduce(0) { $0 + $1.totalPrice }
     }
+<<<<<<< HEAD
     
     var totalItems: Int {
         cartItems.reduce(0) { $0 + $1.quantity }
@@ -50,4 +51,6 @@ class CartViewModel: ObservableObject {
         let totalInCents = Int(totalInDollars * 100)
         return totalInCents
     }
+=======
+>>>>>>> parent of 0a0a31d (Add full barebones functionality)
 }

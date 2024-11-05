@@ -54,7 +54,6 @@
 		ABE393932CD6CA4400D5D6E9 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE393922CD6CA4400D5D6E9 /* CartView.swift */; };
 		ABE393952CD6CA4C00D5D6E9 /* CheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE393942CD6CA4C00D5D6E9 /* CheckoutView.swift */; };
 		ABE393992CD6CAE600D5D6E9 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE393982CD6CAE600D5D6E9 /* LoadingView.swift */; };
-		ABEECEFA2CD75EF900535412 /* CartProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEECEF92CD75EF900535412 /* CartProductView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,7 +115,6 @@
 		ABE393922CD6CA4400D5D6E9 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		ABE393942CD6CA4C00D5D6E9 /* CheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutView.swift; sourceTree = "<group>"; };
 		ABE393982CD6CAE600D5D6E9 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
-		ABEECEF92CD75EF900535412 /* CartProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartProductView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -380,8 +378,11 @@
 				AB31E8A82CD703B900AC7125 /* InputView.swift */,
 				AB31E8AA2CD703CF00AC7125 /* SettingsRowView.swift */,
 				ABC09DD52CD7246A0006B61B /* ProductCardView.swift */,
+<<<<<<< HEAD
 				ABEECEF92CD75EF900535412 /* CartProductView.swift */,
 				ABE1E0EC2CD7CED200FBFE47 /* CheckoutViewControllerRepresentable.swift */,
+=======
+>>>>>>> parent of 0a0a31d (Add full barebones functionality)
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -650,7 +651,6 @@
 				ABE393672CD6C90C00D5D6E9 /* UserSessionViewModel.swift in Sources */,
 				ABE393822CD6C9C700D5D6E9 /* HomeView.swift in Sources */,
 				ABE393772CD6C97200D5D6E9 /* Helpers.swift in Sources */,
-				ABEECEFA2CD75EF900535412 /* CartProductView.swift in Sources */,
 				ABE393632CD6C8EE00D5D6E9 /* CartItem.swift in Sources */,
 				ABE393692CD6C91800D5D6E9 /* CartViewModel.swift in Sources */,
 				ABE393952CD6CA4C00D5D6E9 /* CheckoutView.swift in Sources */,

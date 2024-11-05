@@ -25,6 +25,7 @@ struct SavedView: View {
             if userSession.savedList.isEmpty {
                             Text("Your saved list is empty.")
             } else {
+<<<<<<< HEAD
                 ScrollView {
                     ForEach (userSession.savedList) { product in
                         ProductCardView(product: product)
@@ -36,7 +37,19 @@ struct SavedView: View {
                                 }
                             }
                     }
+=======
+                List(savedViewModel.savedItems) { product in
+                    ProductCardView(product: product)
+                        .swipeActions {
+                            Button(role: .destructive) {
+                                savedViewModel.toggleLike(for: product)
+                            } label: {
+                                Label("Remove", systemImage: "trash")
+                            }
+                        }
+>>>>>>> parent of 0a0a31d (Add full barebones functionality)
                 }
+                .listStyle(InsetGroupedListStyle())
             }
 //            if savedViewModel.savedItems.isEmpty {
 //                Text("No liked items... yet!")
