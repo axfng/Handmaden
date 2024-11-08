@@ -17,7 +17,6 @@ struct CartView: View {
 
 
     var body: some View {
-<<<<<<< HEAD
             VStack {
                 HStack {
                     Text("Shopping Cart")
@@ -66,9 +65,7 @@ struct CartView: View {
                 Spacer()
             }
             .navigationTitle("Cart")
-=======
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
->>>>>>> parent of 0a0a31d (Add full barebones functionality)
     }
 }
 
